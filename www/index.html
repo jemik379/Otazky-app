@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Přijímačky – trenažér otázek</title>
+<meta name="theme-color" content="#1E3A5F">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <button id="backBtn" class="iconbtn" aria-label="Zpět" hidden>&#8592;</button>
+  <h1 id="pageTitle">Balíčky</h1>
+  <div class="iconbtn-spacer"></div>
+</header>
+
+<main id="app"></main>
+
+<nav class="tabbar" id="tabbar">
+  <button class="tab active" data-route="decks">
+    <span class="tabicon">&#128218;</span><span>Balíčky</span>
+  </button>
+  <button class="tab" data-route="capture">
+    <span class="tabicon">&#128247;</span><span>Vyfotit</span>
+  </button>
+  <button class="tab" data-route="all">
+    <span class="tabicon">&#9776;</span><span>Vše</span>
+  </button>
+</nav>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.1.0/tesseract.min.js"></script>
+<script src="db.js"></script>
+<script src="geometry.js"></script>
+<script src="parse.js"></script>
+<script src="ocr.js"></script>
+<script src="seed-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

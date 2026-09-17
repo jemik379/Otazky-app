@@ -1,0 +1,290 @@
+:root{
+  --bg:#EDEEF0;
+  --surface:#FFFFFF;
+  --ink:#1B1F24;
+  --ink-soft:#5B6470;
+  --line:#DBDEE3;
+  --accent:#1E3A5F;
+  --accent-soft:#e7edf3;
+  --amber:#C98A2C;
+  --amber-soft:#faf1e2;
+  --green:#3C7A5B;
+  --green-soft:#e7f2ec;
+  --red:#A63D2F;
+  --red-soft:#f7e9e6;
+  --radius:10px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:76px;
+  min-height:100vh;
+}
+h1,h2,h3{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  margin:0;
+}
+button{font-family:inherit;}
+
+/* Topbar */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;gap:8px;
+  background:var(--bg);
+  padding:14px 8px;
+  border-bottom:1px solid var(--line);
+}
+.topbar h1{font-size:20px;flex:1;text-align:center;}
+.iconbtn{
+  width:40px;height:40px;border:none;background:transparent;
+  font-size:20px;color:var(--accent);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.iconbtn[hidden]{display:none;}
+.iconbtn:active{background:var(--accent-soft);}
+.iconbtn-spacer{width:40px;height:40px;flex:none;}
+
+main#app{padding:16px;max-width:560px;margin:0 auto;}
+
+/* Tabbar */
+.tabbar{
+  position:fixed;bottom:0;left:0;right:0;
+  display:flex;background:var(--surface);
+  border-top:1px solid var(--line);
+  padding:6px 0 10px;
+  z-index:20;
+}
+.tab{
+  flex:1;border:none;background:none;
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  color:var(--ink-soft);font-size:12px;padding:6px 0;
+}
+.tab.active{color:var(--accent);font-weight:600;}
+.tabicon{font-size:20px;}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:none;border-radius:var(--radius);
+  padding:13px 18px;font-size:15px;font-weight:600;
+  cursor:pointer;width:100%;
+}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-secondary{background:var(--surface);color:var(--accent);border:1px solid var(--line);}
+.btn-ghost{background:transparent;color:var(--ink-soft);}
+.btn-danger{background:var(--red-soft);color:var(--red);}
+.btn-sm{padding:8px 12px;font-size:13px;width:auto;}
+.btn:disabled{opacity:.45;}
+.btn-row{display:flex;gap:10px;margin-top:14px;}
+
+/* Deck list */
+.deck-row, .q-row{
+  display:flex;align-items:center;gap:12px;
+  background:var(--surface);
+  border-left:4px solid var(--line);
+  border-radius:6px;
+  padding:14px;margin-bottom:10px;
+}
+.deck-row{cursor:pointer;}
+.deck-row .meta{flex:1;}
+.deck-row h3{font-size:17px;}
+.deck-row .count{color:var(--ink-soft);font-size:13px;margin-top:2px;}
+.chev{color:var(--ink-soft);font-size:18px;}
+
+.q-row.status-new{border-left-color:var(--line);}
+.q-row.status-priority{border-left-color:var(--amber);}
+.q-row.status-learned{border-left-color:var(--green);}
+.q-row .qtext{flex:1;font-size:14.5px;line-height:1.4;}
+.badge{
+  font-size:11px;font-weight:600;padding:3px 8px;border-radius:20px;
+  white-space:nowrap;
+}
+.badge-new{background:var(--line);color:var(--ink-soft);}
+.badge-priority{background:var(--amber-soft);color:var(--amber);}
+.badge-learned{background:var(--green-soft);color:var(--green);}
+
+.empty{
+  text-align:center;color:var(--ink-soft);padding:60px 20px;
+  font-size:14px;line-height:1.6;
+}
+.empty h3{color:var(--ink);margin-bottom:8px;}
+
+.section-label{
+  font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--ink-soft);
+  margin:18px 0 8px;
+}
+
+/* Filter chips */
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px;}
+.chip{
+  border:1px solid var(--line);background:var(--surface);
+  border-radius:20px;padding:7px 14px;font-size:13px;color:var(--ink-soft);
+  white-space:nowrap;
+}
+.chip.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+/* Forms */
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:6px;}
+.field input[type=text], .field textarea{
+  width:100%;border:1px solid var(--line);border-radius:8px;
+  padding:12px;font-size:15px;font-family:inherit;background:var(--surface);color:var(--ink);
+}
+.field textarea{min-height:90px;resize:vertical;}
+
+/* Option editor rows (capture confirm screen) */
+.opt-edit{
+  display:flex;align-items:flex-start;gap:10px;
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;
+  padding:10px;margin-bottom:8px;
+}
+.opt-edit.marked-correct{border-color:var(--green);background:var(--green-soft);}
+.opt-edit textarea{flex:1;border:none;background:transparent;font-size:14.5px;resize:vertical;min-height:38px;font-family:inherit;color:var(--ink);}
+.opt-edit .correct-toggle{
+  width:26px;height:26px;border-radius:50%;border:2px solid var(--line);
+  background:#fff;flex:none;margin-top:6px;
+}
+.opt-edit.marked-correct .correct-toggle{background:var(--green);border-color:var(--green);color:#fff;}
+
+.hint-box{
+  background:var(--accent-soft);color:var(--accent);
+  border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.5;margin-bottom:14px;
+}
+
+/* Camera / capture */
+.capture-box{
+  border:2px dashed var(--line);border-radius:12px;
+  padding:40px 20px;text-align:center;color:var(--ink-soft);
+  margin-bottom:16px;
+}
+.capture-box img{max-width:100%;border-radius:8px;margin-top:12px;}
+input[type=file]{display:none;}
+
+.thumb-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:6px;
+}
+.thumb{position:relative;border-radius:8px;overflow:hidden;background:var(--surface);border:1px solid var(--line);aspect-ratio:1;}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.thumb-del{
+  position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:50%;
+  border:none;background:rgba(27,31,36,.7);color:#fff;font-size:12px;line-height:1;
+}
+
+/* Ořez fotky (perspektivní — 4 nezávislé rohy) */
+.crop-wrap{
+  position:relative;width:100%;border-radius:8px;overflow:hidden;
+  margin-bottom:14px;background:#111;touch-action:none;
+}
+.crop-wrap img{width:100%;display:block;user-select:none;-webkit-user-select:none;}
+.crop-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;}
+.crop-poly{
+  fill:rgba(30,58,95,.25);stroke:var(--accent);stroke-width:0.6;
+  vector-effect:non-scaling-stroke;
+}
+.crop-handle{
+  position:absolute;width:26px;height:26px;background:var(--accent);
+  border:3px solid #fff;border-radius:50%;touch-action:none;
+  transform:translate(-50%,-50%);box-shadow:0 1px 4px rgba(0,0,0,.4);
+}
+
+/* Označování víc oblastí s obrázky (vzorce/schémata) na jedné fotce */
+.mark-rect{
+  position:absolute;border:2px solid var(--amber);
+  background:rgba(201,138,44,.22);touch-action:none;
+}
+.mark-rect .crop-handle{background:var(--amber);width:24px;height:24px;}
+.mark-rect .crop-handle[data-corner="nw"]{left:0;top:0;}
+.mark-rect .crop-handle[data-corner="ne"]{left:100%;top:0;}
+.mark-rect .crop-handle[data-corner="sw"]{left:0;top:100%;}
+.mark-rect .crop-handle[data-corner="se"]{left:100%;top:100%;}
+.mark-rect-del{
+  position:absolute;top:-14px;right:-14px;width:26px;height:26px;
+  border-radius:50%;border:2px solid #fff;background:var(--red);color:#fff;
+  font-size:13px;line-height:1;z-index:2;
+}
+
+.progress{
+  height:6px;background:var(--line);border-radius:4px;overflow:hidden;margin:14px 0;
+}
+.progress > div{height:100%;background:var(--accent);width:0%;transition:width .2s;}
+
+/* Quiz */
+.quiz-progress{font-size:13px;color:var(--ink-soft);margin-bottom:10px;}
+.quiz-question{font-size:19px;font-family:'Fraunces',serif;font-weight:600;line-height:1.4;margin-bottom:18px;}
+.quiz-opt{
+  display:block;width:100%;text-align:left;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:10px;
+  padding:14px;margin-bottom:10px;font-size:15px;color:var(--ink);
+}
+.quiz-opt.selected{border-color:var(--accent);background:var(--accent-soft);}
+.quiz-opt.correct-reveal{border-color:var(--green);background:var(--green-soft);}
+.quiz-opt.wrong-reveal{border-color:var(--red);background:var(--red-soft);}
+.quiz-result{
+  text-align:center;padding:30px 10px;
+}
+.quiz-result .big{font-family:'Fraunces',serif;font-size:40px;font-weight:700;color:var(--accent);}
+
+.mark-row{display:flex;gap:8px;margin-top:16px;}
+.mark-btn{
+  flex:1;border-radius:8px;padding:12px;font-size:13px;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--ink-soft);
+}
+.mark-btn.on.priority{border-color:var(--amber);background:var(--amber-soft);color:var(--amber);}
+.mark-btn.on.learned{border-color:var(--green);background:var(--green-soft);color:var(--green);}
+
+.note-box{
+  background:var(--amber-soft);color:#7a5417;border-left:3px solid var(--amber);
+  border-radius:6px;padding:12px 14px;font-size:13.5px;line-height:1.5;margin-bottom:14px;
+  font-style:italic;
+}
+
+.conf-badge{
+  display:inline-block;font-size:12.5px;font-weight:600;padding:6px 12px;
+  border-radius:20px;margin-bottom:10px;
+}
+.conf-badge.conf-high{background:var(--green-soft);color:var(--green);}
+.conf-badge.conf-mid{background:var(--amber-soft);color:var(--amber);}
+.conf-badge.conf-low{background:var(--red-soft);color:var(--red);}
+.raw-text-box{
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;
+  padding:12px;font-size:12.5px;line-height:1.5;color:var(--ink-soft);
+  white-space:pre-wrap;margin-bottom:14px;max-height:220px;overflow-y:auto;
+  font-family:ui-monospace,monospace;
+}
+
+/* Vložené obrázky vzorců/schémat (místo textu, kdyz OCR nestaci) */
+.formula-preview{
+  position:relative;display:inline-block;margin-bottom:14px;max-width:100%;
+}
+.formula-preview img{
+  max-width:100%;max-height:220px;display:block;border-radius:8px;
+  border:1px solid var(--line);background:#fff;
+}
+.formula-preview .iconbtn{
+  position:absolute;top:4px;right:4px;background:rgba(255,255,255,.9);
+  width:auto;height:auto;padding:4px 8px;font-size:11px;border-radius:6px;
+}
+.formula-preview.small img{max-height:120px;}
+.formula-preview.small{display:block;margin-bottom:8px;}
+.quiz-opt-img{
+  display:block;max-width:100%;max-height:160px;margin-bottom:6px;
+  border-radius:6px;background:#fff;
+}
+
+.toast{
+  position:fixed;bottom:90px;left:50%;transform:translateX(-50%);
+  background:var(--ink);color:#fff;padding:10px 18px;border-radius:20px;
+  font-size:13px;z-index:50;
+}
+
+.deck-picker{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+.deck-pick-chip{border:1.5px solid var(--line);border-radius:20px;padding:8px 14px;font-size:13px;background:var(--surface);color:var(--ink-soft);}
+.deck-pick-chip.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+@media (min-width:600px){
+  main#app{padding:24px;}
+}
